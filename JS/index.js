@@ -1,20 +1,23 @@
 'use strict'
 
-let number = 5;
-const leftBorderWidth = 1;
+const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", '')
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+}
+
+const a = prompt("Один из последних просмотренный фильмов?", ''),
+      b = prompt("На сколько оцените его?",''),
+      c = prompt("Один из последних просмотренный фильмов?",''),
+      d = prompt("На сколько оцените его?",'')
 
 
-// const result = confirm("Are you here?");
+personalMovieDB.movies[a] = b
+personalMovieDB.movies[c] = d
 
-// console.log('result :>> ', result);
+console.log(personalMovieDB)
 
-// const answer = prompt("Are you 18?", "18")
-// console.log('answer :>> ',typeof(answer));
-
-const answers = [];
-
-answers[0] = prompt("What is your name?", "");
-answers[1] = prompt("What is your surname?", "");
-answers[2] = prompt("How old are your?", "");
-
-document.write(answers);
