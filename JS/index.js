@@ -1,39 +1,78 @@
 "use strict";
 
-// const numberOfFilms = prompt("Сколько фильмов вы уже посмотрели?", "");
+let numberOfFilms;
 
-// const personalMovieDB = {
-//   count: numberOfFilms,
-//   movies: {},
-//   actors: {},
-//   genres: [],
-//   privat: false,
-// };
+function start() {
+  numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
-// for (let i = 0; i < 2; i++) {
-//   const a = prompt("Один из последних просмотренных фильмов?", ""),
-//     b = prompt("На сколько оцените его?", "");
+  while (
+    numberOfFilms === "" ||
+    numberOfFilms === null ||
+    isNaN(numberOfFilms)
+  ) {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+  }
+}
 
-//   if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-//     personalMovieDB.movies[a] = b;
-//     console.log("done");
-//   } else {
-//     console.log("error");
-//     i--;
-//   }
-// }
+start();
+
+const personalMovieDB = {
+  count: numberOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false,
+};
+
+function rememberMyFilms() {
+  for (let i = 0; i < 2; i++) {
+    const a = prompt("Один из последних просмотренных фильмов?", ""),
+      b = prompt("На сколько оцените его?", "");
+
+    if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+      console.log("done");
+    } else {
+      console.log("error");
+      i--;
+    }
+  }
+}
+
+rememberMyFilms();
+
+function detectPersonalLevel() {
+  if (personalMovieDB.count < 10) {
+    console.log("Not mush movies watched");
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log("You are classic watcher ?");
+  } else if (personalMovieDB.count > 30) {
+    console.log("You are movie liker");
+  } else {
+    console.log("Error");
+  }
+}
+
+detectPersonalLevel();
+
+function showDB(hidden) {
+  if (!hidden) {
+    console.log(personalMovieDB);
+  }
+}
+
+showDB(personalMovieDB.privat);
+
+function writeYourGenres() {
+  for (let i = 1; i <= 3; i++) {
+    personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+  }
+}
+writeYourGenres();
+
+console.log(personalMovieDB);
 
 // console.log(personalMovieDB);
-
-// if (personalMovieDB.count < 10) {
-//   console.log("Not mush movies watched");
-// } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-//   console.log("You are classic watcher ?");
-// } else if (personalMovieDB.count > 30) {
-//   console.log("You are movie liker");
-// } else {
-//   console.log("Error");
-// }
 
 // for (let i = 0; i < 3; i++) {
 //   if (personalMovieDB.count < 10) {
@@ -113,15 +152,15 @@
 //   console.log(i);
 // }
 
-let num = 20;
+// let num = 20;
 
-function showFirstMessage(text) {
-  console.log(text);
-  // let num = 10;
-}
+// function showFirstMessage(text) {
+//   console.log(text);
+//   // let num = 10;
+// }
 
-showFirstMessage("Hello");
-console.log(num);
+// showFirstMessage("Hello");
+// console.log(num);
 
 // function calc(a, b) {
 //   return a + b;
@@ -131,20 +170,45 @@ console.log(num);
 // console.log(calc(5, 6));
 // console.log(calc(10, 6));
 
-function ret() {
-  let num = 50;
-  return num;
-}
+// function ret() {
+//   let num = 50;
+//   return num;
+// }
 
-const anoterNum = ret();
-console.log(anoterNum);
+// const anoterNum = ret();
+// console.log(anoterNum);
 
-const loger = function () {
-  console.log("Hello");
-};
+// const loger = function () {
+//   console.log("Hello");
+// };
 
-loger();
+// loger();
 
-const calc = (a, b) => a + b;
+// const calc = (a, b) => a + b;
 
-console.log(calc(3, 3));
+// console.log(calc(3, 3));
+
+// const str = "teSt";
+
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
+
+// const someFruit = "Some fruit";
+
+// console.log(someFruit.indexOf("fruit"));
+
+// const logg = "Hello World!";
+
+// // console.log(logg.slice(6, 11));
+
+// // console.log(logg.substring(6, 11));
+
+// console.log(logg.substr(6, 5));
+
+// const num = 12.2;
+// console.log(Math.round(num));
+
+// const test = "12.2px";
+
+// console.log(parseInt(test));
+// console.log(parseFloat(test));
